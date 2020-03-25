@@ -5,7 +5,6 @@ module.exports ={
 }
 
 function index(req, res) {
-    Puppy.find(req.params.id).then(function() {
-      console.log('hello')
-    });
-  }
+    res.render(console.log("hello"))
+    
+}

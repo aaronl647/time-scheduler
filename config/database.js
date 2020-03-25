@@ -9,5 +9,5 @@ mongoose.connect(
 const db = mongoose.connection
 
 db.on('connected', function () {
-    console.log(`HOWDY HO! You've connected to the MongoDB at ${db.host}:${db.port} `)
+    console.log(`HOWDY HO! You've connected to the MongoDB at ${db.host}:${db.port}`)
 })
