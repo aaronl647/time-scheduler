@@ -10,6 +10,7 @@ function index(req, res) {
     User.create(userData)
     .then(users => {
         console.log(users)
+        res.render('schedule/users')
     })   
 }
 

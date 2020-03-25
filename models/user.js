@@ -9,8 +9,14 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
-    }
-    // availablitiy: [String],
+    },
+    // availableDates: {
+    //     type: mongoose.ObjetId,
+    //     default: null
+    // },
+    // activity: {
+    //     type: ObjectId
+    // }
 })
 
 module.exports = mongoose.model('User', userSchema)
