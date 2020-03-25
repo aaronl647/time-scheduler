@@ -2,18 +2,14 @@ const User = require('../models/user');
 const userData = require('../seeds')
 
 module.exports ={
-    index,
-    new: newSchedule
+    home,
 }
 
-function index(req, res) {
+function home(req, res) {
     User.create(userData)
     .then(users => {
         console.log(users)
-        res.render('schedule/users')
-    })   
-}
-
-function newSchedule(req, res){
-    res.render('schedule/date')
+        console.log("YEET")
+        res.render('index', { title: 'Time Scheduler App' });
+})   
 }

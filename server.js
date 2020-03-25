@@ -9,6 +9,7 @@ require('./config/database')
 
 var indexRouter = require('./routes/index');
 var appRouter = require('./routes/app');
+const dateRouter = require('./routes/date');
 
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/app', appRouter);
+app.use('/date', dateRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
