@@ -15,5 +15,5 @@ function index(req, res) {
 }
 
 function newSchedule(req, res){
-    res.render('schedule/new')
+    res.render('schedule/date')
 }
