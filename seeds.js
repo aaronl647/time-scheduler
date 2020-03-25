@@ -1,18 +1,14 @@
-const db = require('./models')
-
-const userAaron = {
+module.exports = [
+    {
         name: "Aaron",
         email: "aaron.l@live.ca"
+    },
+    {
+        name: "Kaitlin",
+        email: "kaitlinl99@gmail.com"
+    },
+    {
+        name: "Eric",
+        email: "eric.potocean@gmail.com"
     }
-
-db.User.deleteMany({}, (err, users) =>{
-    console.log('removed all users');
-    db.User.create(userAaron,(err, users)=> {
-        if(err) {
-            console.log(err);
-            return;
-        }
-        console.log('recreated all authors');
-        console.log(`created ${users.length} users`)
-    })
-})
+]
