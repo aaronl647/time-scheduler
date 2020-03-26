@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -8,26 +8,28 @@
 
 <body>
   <h1>Welcome to the <%= title %></h1>
-  <form>
-    <div class='form-group'>
-      <label>Full Name:</label>
+  <form method="POST" action="schedule/users">
+    <div class='form-group' id='signup'>
+      <label for="name">Full Name:</label>
       <input type="text" class="form-control" name="name">
-      <label>E-mail:</label>
+      <label for="email">E-mail:</label>
       <input type="text" class="form-control" name="email">
     </div>
-    <button type="submit" class="btn btn-primary btn-lg" formaction="/">Sign up</button>
+    <button type="submit" class="btn btn-primary" formaction="/">Sign up</button>
   </form><br>
-  <div class="create">
-    <button>
-      <a href="date/new">Create a new Schedule 
-      </a>
-    </button>
-  </div><br>
-  <div class="onGoing">
-    <button>
-       <!-- <a href="/app/new">-->View On-going Plans
-    </button>
-  </div>
+
 </body>
 
 </html>
+
+<div class="create">
+  <button>
+    <a href="date/new">Create a new Schedule 
+    </a>
+  </button>
+</div><br>
+<div class="onGoing">
+  <button>
+     <a href="user/new">View On-going Plans
+  </button>
+</div> --> 

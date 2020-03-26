@@ -6,13 +6,11 @@ var logger = require('morgan');
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-
 require('./config/database')
 
-var indexRouter = require('./routes/index');
-var userRouter = require('./routes/users');
+// var indexRouter = require('./routes/index');
+// var userRouter = require('./routes/user');
 const dateRouter = require('./routes/date');
-
 
 var app = express();
 
@@ -30,8 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use('/', indexRouter);
-app.use('/user', userRouter);
+// app.use('/', indexRouter);
+// app.use('/user', userRouter);
 app.use('/date', dateRouter)
 
 // catch 404 and forward to error handler

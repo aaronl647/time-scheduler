@@ -1,16 +1,21 @@
-var express = require('express');
-var router = express.Router();
-const userCtrl = require('../controllers/users')
-const dateCtrl = require('../controllers/date')
+// var express = require('express');
+// var router = express.Router();
+// const indexCtrl = require('../controllers/index');
 
+// /* GET home page. */
+// router.get('/', indexCtrl.index);
+// router.post('/', indexCtrl.new);
 
-/* GET home page. */
-router.get('/', userCtrl.index)
-
-module.exports = router;
+// module.exports = router;
 
 
 
 // function(req, res, next) {
 //   res.render('index', { title: 'Time Scheduler App' });
 // }
+
+
+
+
+// const userCtrl = require('../controllers/user')
+// const dateCtrl = require('../controllers/date')
