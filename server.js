@@ -4,11 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
+const bodyParser = require('body-parser')
+
 
 require('./config/database')
 
 var indexRouter = require('./routes/index');
-var appRouter = require('./routes/app');
+var userRouter = require('./routes/users');
 const dateRouter = require('./routes/date');
 
 
@@ -25,9 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.use('/', indexRouter);
-app.use('/app', appRouter);
+app.use('/user', userRouter);
 app.use('/date', dateRouter)
 
 // catch 404 and forward to error handler

@@ -8,14 +8,18 @@
 </head>
 
 <body>
-    <h2>Please enter your available dates</h2>
-    <form action="/schedule" method="POST">
-        <label>Dates:
-            <input type="date" name="title">
-            <button>Add More</button>
-        </label><br>
-        <input type="submit" value="Add Dates">
-</form>
+    <h2><%= title %></h2>
+    <form method="POST">
+        <label>Dates:</label>
+            <div id="dynamicInput">
+                <input type="text" name="dayOfWeek">
+            </div>
+        <br>
+        <button>Add More</button>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 
 </html>
+
+<!-- action="/schedule" -->

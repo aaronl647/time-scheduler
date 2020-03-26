@@ -5,7 +5,7 @@ const dateCtrl = require('../controllers/date')
 
 
 /* GET home page. */
-router.get('/', userCtrl.home)
+router.get('/', userCtrl.index)
 
 module.exports = router;
 
