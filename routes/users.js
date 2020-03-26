@@ -5,6 +5,6 @@ const usersCtrl = require('../controllers/users')
 /* GET users listing. */
 router.get('/', usersCtrl.index);
 router.get('/new', usersCtrl.new);
-router.get('/:id', usersCtrl.show);
+// router.get('/:id', usersCtrl.show);
 router.post('/', usersCtrl.create);
 module.exports = router;

@@ -8,27 +8,26 @@
 
 <body>
   <h1>Welcome to the <%= title %></h1>
-  <section>
-    <div class="newUser">
-      <label>Name:</label>
-      <input type="text" name="username">
+  <form>
+    <div class='form-group'>
+      <label>Full Name:</label>
+      <input type="text" class="form-control" name="name">
       <label>E-mail:</label>
-      <input type="text" name="email">
-      <button>Sign up</button>
-    </div><br>
-
-    <div class="create">
-      <button>
-        <a href="date/new">Create a new Schedule 
-        </a>
-      </button>
-    </div><br>
-    <div class="onGoing">
-      <button>
-         <!-- <a href="/app/new">-->View On-going Plans
-      </button>
+      <input type="text" class="form-control" name="email">
     </div>
-  </section>
+    <button type="submit" class="btn btn-primary btn-lg" formaction="/">Sign up</button>
+  </form><br>
+  <div class="create">
+    <button>
+      <a href="date/new">Create a new Schedule 
+      </a>
+    </button>
+  </div><br>
+  <div class="onGoing">
+    <button>
+       <!-- <a href="/app/new">-->View On-going Plans
+    </button>
+  </div>
 </body>
 
 </html>

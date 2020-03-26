@@ -4,7 +4,7 @@ const userData = require('../seeds')
 module.exports = {
     index,
     // show,
-    // new: newUser,
+    new: newUser,
     create
 }
 
@@ -14,6 +14,11 @@ function index(req, res) {
         title: 'Time Scheduler App'
     });
 }
+
+function newUser(req, res) {
+    console.log('okay')
+    res.redirect('/');
+  }
 
 function create(req, res) {
     const createUser = new User(req.body);
