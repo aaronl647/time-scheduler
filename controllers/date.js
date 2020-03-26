@@ -13,18 +13,18 @@ function index(req, res) {
 
 function newSchedule(req, res) {
     console.log('hello')
-    const schedule = new Time_Date()
+    // schedule.dayOfWeek = req.body.dayOfWeek
+    if (req.body.dayOfWeek) req.body.dayOfWeek = req.body.dayOfWeek.split(',');
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    const schedule = new Time_Date(req.body)
     schedule.dayOfWeek = req.body.dayOfWeek
     schedule.save()
     console.log(schedule)
     res.send('Dates have been saved')
 }
 
-  // split if it's not an empty string
-//   if (req.body.cast) req.body.cast = req.body.cast.split(',');
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.body[key];
-//   }
   
 //   const movie = new Movie(req.body);
 //   movie.save(function(err) {
