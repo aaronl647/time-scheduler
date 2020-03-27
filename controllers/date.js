@@ -1,11 +1,16 @@
 const Time_Date = require('../models/availableDays');
+const User = require('../models/user')
 
 module.exports = {
     index,
     new: newSchedule,
-    show,
-    delete: deleteOne,
+    // show,
+    // delete: deleteOne,
 }
+
+Time_Date.deleteMany(() => {
+  console.log('Database Cleared!')
+});
 
 function index(req, res) {
     res.render('schedule/date', {title: 'Add available dates'})
@@ -20,17 +25,18 @@ function newSchedule(req, res) {
     schedule.dayOfWeek = req.body.dayOfWeek
     schedule.save()
     console.log(schedule)
-    res.redirect(`date/${schedule._id}`)
+    schedule.populate
+    res.redirect('/activity')
 }
-function show(req, res) {
-    Time_Date.findById(req.params.id, function(err, dates) {
-      res.render('schedule/show', { title: 'Available Dates and Times', dates });
-    });
-  }
+// function show(req, res) {
+//     Time_Date.findById(req.params.id, function(err, dates) {
+//       res.render('schedule/show', { title: 'Available Dates and Times', dates });
+//     });
+//   }
 
-function deleteOne(req,res) {
-    const schedule = new Time_Date(req.params.id)
-    .then(date => date.remove()
-    .then(()=> 
-    console.log(schedule))
-    )}
+// function deleteOne(req,res) {
+//     const schedule = new Time_Date(req.params.id)
+//     .then(date => date.remove()
+//     .then(()=> 
+//     console.log(schedule))
+//     )}

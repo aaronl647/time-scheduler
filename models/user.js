@@ -10,8 +10,8 @@ const UserSchema = Schema({
         type: String,
         required: true
     },
-    schedule: [{type: mongoose.Schema.Types.ObjectId, ref: 'Availability', default: null}],
-    activity: [{type: mongoose.Schema.Types.ObjectId, ref: 'Activity', default: null}]
+    schedule: {type: mongoose.Schema.Types.ObjectId, ref: 'Availability', default: null},
+    activity: {type: mongoose.Schema.Types.ObjectId, ref: 'Activity', default: null}
 })
 
 const User = mongoose.model('User', UserSchema);

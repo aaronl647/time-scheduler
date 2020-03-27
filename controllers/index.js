@@ -3,8 +3,12 @@ const User = require('../models/user');
 module.exports = {
     index,
     new: newUser,
-    show
+    // show
 }
+
+User.deleteMany(() => {
+  console.log('Database Cleared!')
+});
 
 function index(req, res) {
     console.log("hi")
@@ -19,12 +23,9 @@ function newUser(req, res) {
     newRecord.email
     newRecord.save()
     console.log(newRecord)
-    res.redirect(`${newRecord._id}`)
+    res.redirect('date')
 }
 
-function show(req, res) {
-    User.findById(req.params.id)
-    .then(user => {
-        res.render('users/new', { title:  'What do you want to do?', user });
-    })
-}
+// function show(req, res) {
+//     res.render('users/new', { title:  'What do you want to do?'});
+// }
