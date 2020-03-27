@@ -4,6 +4,8 @@ const Time_Date = require('../models/availableDays');
 module.exports = {
     index,
     new: newSchedule,
+    show,
+    delete: deleteOne,
     // create
 }
 
@@ -22,8 +24,20 @@ function newSchedule(req, res) {
     schedule.dayOfWeek = req.body.dayOfWeek
     schedule.save()
     console.log(schedule)
-    res.send('Dates have been saved')
+    res.redirect(`date/${schedule._id}`)
 }
+function show(req, res) {
+    Time_Date.findById(req.params.id, function(err, dates) {
+      res.render('schedule/show', { title: 'Available Dates and Times', dates });
+    });
+  }
+
+function deleteOne(req,res) {
+    const schedule = new Time_Date(req.params.id)
+    .then(date => date.remove()
+    .then(()=> 
+    console.log(schedule))
+    )}
 
   
 //   const movie = new Movie(req.body);

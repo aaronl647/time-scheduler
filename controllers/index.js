@@ -1,22 +1,38 @@
-// const User = require('../models/index');
+const User = require('../models/user');
 
-// module.exports = {
-//     index,
-//     new: newUser
-// }
+module.exports = {
+    index,
+    new: newUser,
+    show
+}
 
-// function index(req, res) {
-//     console.log("hi")
-//     res.render('index', {
-//         title: 'Time Scheduler App'
-//     });
-// }
+function index(req, res) {
+    console.log("hi")
+    res.render('index', {
+        title: 'Time Scheduler App'
+    });
+}
 
-// function newUser(req, res) {
-//     const newRecord = new User()
-//         newRecord.name = req.body.name,
-//         newRecord.email = req.body.email
-//     newRecord.save()
-//     console.log(newRecord)
-//     res.render('/')
-// }
+function newUser(req, res) {
+    const newRecord = new User(req.body)
+    newRecord.name 
+    newRecord.email
+    newRecord.save()
+    console.log(newRecord)
+    res.redirect(`/${newRecord._id}`)
+}
+
+function show(req, res) {
+    User.findById(req.params.id, function(err, user) {
+      res.render('users/new', { title:  'What do you want to do?', user });
+    });
+  }
+
+
+// User.name = req.body.name,
+//     User.email = req.body.email
+//     User.save()
+//     .then(newRecord => {
+//         console.log(newRecord)
+//         res.render('users/new')
+//     })
