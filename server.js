@@ -9,8 +9,8 @@ const bodyParser = require('body-parser')
 require('./config/database')
 
 var indexRouter = require('./routes/index');
-// var userRouter = require('./routes/user');
 const dateRouter = require('./routes/date');
+const activityRouter = require('./routes/activity')
 
 var app = express();
 
@@ -29,8 +29,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.use('/', indexRouter);
-// app.use('/user', userRouter);
 app.use('/date', dateRouter)
+app.use('/activity', activityRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

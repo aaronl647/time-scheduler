@@ -27,12 +27,3 @@ function show(req, res) {
       res.render('users/new', { title:  'What do you want to do?', user });
     });
   }
-
-
-// User.name = req.body.name,
-//     User.email = req.body.email
-//     User.save()
-//     .then(newRecord => {
-//         console.log(newRecord)
-//         res.render('users/new')
-//     })
