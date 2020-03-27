@@ -19,11 +19,12 @@ function newUser(req, res) {
     newRecord.email
     newRecord.save()
     console.log(newRecord)
-    res.redirect(`/${newRecord._id}`)
+    res.redirect(`${newRecord._id}`)
 }
 
 function show(req, res) {
-    User.findById(req.params.id, function(err, user) {
-      res.render('users/new', { title:  'What do you want to do?', user });
-    });
-  }
+    User.findById(req.params.id)
+    .then(user => {
+        res.render('users/new', { title:  'What do you want to do?', user });
+    })
+}

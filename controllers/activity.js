@@ -5,5 +5,5 @@ module.exports = {
 }
 
 function index(req, res) {
-    res.render('activity/description',{title: "What activities would you like to do?"})
+    res.render('activity/description', {title: "What activities would you like to do?"})
 }
