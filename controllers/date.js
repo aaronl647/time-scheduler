@@ -9,10 +9,6 @@ module.exports = {
     // delete: deleteOne,
 }
 
-Time_Date.deleteMany(() => {
-  console.log('Database Cleared!')
-});
-
 function index(req, res) {
     res.render('schedule/date', {title: 'Add available dates'})
 }

@@ -6,10 +6,6 @@ module.exports = {
     show
 }
 
-User.deleteMany(() => {
-  console.log('Database Cleared!')
-});
-
 function index(req, res) {
     console.log("hi")
     res.render('index', {

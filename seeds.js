@@ -1,7 +1,8 @@
-const db = require('./models')
+const db = require('./models');
 
 
-const user_name = [{
+const user_name = [
+    {
         name: "Aaron",
         email: "aaron.l@live.ca"
     },
@@ -16,7 +17,8 @@ const user_name = [{
     }
 ]
 
-const time_date = [{
+const time_date = [
+    {
         dayOfWeek: ["Monday", "Wednesday", "Friday"],
         time: ["Afternoon", "Night", "Morning"]
     },
@@ -50,6 +52,7 @@ db.User.deleteMany({}, (err, users) => {
             return;
         }
         console.log('recreated all users');
+        console.log(users)
         
     })
 })
