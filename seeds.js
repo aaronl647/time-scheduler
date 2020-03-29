@@ -41,3 +41,15 @@ const activity = [
         description: ["Dinner", "Dinner", "Dinner"]
     }
 ]
+
+db.User.deleteMany({}, (err, users) => {
+    console.log('removed all users');
+    db.User.create(user_name,(err, users) =>{
+        if(err) {
+            console.log(err);
+            return;
+        }
+        console.log('recreated all users');
+        
+    })
+})

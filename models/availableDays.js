@@ -12,6 +12,6 @@ const daySchema = new mongoose.Schema({
     }
 })
 
-const Availbility = mongoose.model('Availbility', daySchema)
+const Availability = mongoose.model('Availability', daySchema)
 
-module.exports = Availbility
+module.exports = Availability

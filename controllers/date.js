@@ -4,7 +4,8 @@ const User = require('../models/user')
 module.exports = {
     index,
     new: newSchedule,
-    // show,
+    show,
+    put: putScheduleInUser
     // delete: deleteOne,
 }
 
@@ -28,11 +29,22 @@ function newSchedule(req, res) {
     schedule.populate
     res.redirect('/activity')
 }
-// function show(req, res) {
-//     Time_Date.findById(req.params.id, function(err, dates) {
-//       res.render('schedule/show', { title: 'Available Dates and Times', dates });
-//     });
-//   }
+
+function show(req, res) {
+    Time_Date.find(req.params.id, function(err, dates) {
+      res.render('schedule/show', { title: 'Available Dates and Times', dates });
+    });
+  }
+
+  function putScheduleInUser(sched) {
+    Time_Date.find(sched.id)
+        User.populate('schedule')
+        .exec((err, id) => {
+            console.log("Populated user with ID" + id)
+            console.log(User)
+            res.render('new')
+        })
+}
 
 // function deleteOne(req,res) {
 //     const schedule = new Time_Date(req.params.id)

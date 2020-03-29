@@ -3,7 +3,7 @@ const User = require('../models/user');
 module.exports = {
     index,
     new: newUser,
-    // show
+    show
 }
 
 User.deleteMany(() => {
@@ -26,6 +26,6 @@ function newUser(req, res) {
     res.redirect('date')
 }
 
-// function show(req, res) {
-//     res.render('users/new', { title:  'What do you want to do?'});
-// }
+function show(req, res) {
+    res.render('users/new', { title:  'What do you want to do?'});
+}

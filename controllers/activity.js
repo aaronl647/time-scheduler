@@ -1,16 +1,20 @@
 const Activity = require('../models/activity')
 const User = require('../models/user')
+const Time_Date = require('../models/availableDays')
+
 module.exports = {
     index,
-    new: newActivity
+    new: newActivity,
+    // show
+
 }
 
-Activity.deleteMany(() => {
-  console.log('Database Cleared!')
-});
-
 function index(req, res) {
-    res.render('activity/description', {title: "What activities would you like to do?"})
+    Activity.findOne({_id:Activity._id})
+.populate('activityId')
+.exec(function(err, activity){
+    res.json(activity)
+})
 }
 
 function newActivity(req, res) {
@@ -20,7 +24,25 @@ function newActivity(req, res) {
     }
     const activity = new Activity(req.body)
     activity.description = req.body.description
+    // .populate('de')
     activity.save()
     console.log(activity)
-    res.redirect()
+    res.redirect(`activity/new`)
 }
+
+//  const activity =  Activity.create([
+//      {_id: _id}
+//     ]);
+//  await User.create({
+//      activity: activity._id
+//  })
+
+
+// function show(req, res) {
+//     Activity.find({_id: _id})
+//         .populate('activity')
+//         .exec(function(err, act){
+//             console.log(act)
+//             res.send('Updated User object!')
+//         })
+//     }
