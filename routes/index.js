@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         email: req.body.email
     })
+    newUser.save()
     console.log(newUser)
     res.json(newUser)
 })

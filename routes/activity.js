@@ -10,6 +10,7 @@ router.post('/', (req,res) =>{
     const newActivity = new Activity ({
         description: req.body.description
     })
+    newActivity.save()
     console.log(newActivity)
     res.json(newActivity)
 });

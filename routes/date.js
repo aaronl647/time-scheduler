@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
         dayOfWeek: req.body.dayOfWeek,
         time: req.body.time
     })
+    newDateTime.save()
     console.log(newDateTime)
     res.json(newDateTime)
 })
