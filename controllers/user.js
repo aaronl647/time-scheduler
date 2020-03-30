@@ -10,7 +10,10 @@ module.exports = {
     newPlan,
     newActivity,
     editUser,
-    editSchedule
+    editSchedule,
+    deleteSchedule,
+    editActivity,
+    deleteActivity
 }
 
 function index(req, res){
@@ -105,7 +108,43 @@ function editUser(req,res) {
     });
   }; 
 
+  function deleteSchedule(req, res) {
+    Avail.findByIdAndRemove(req.params.id)
+    .then(sched => {
+      res.status(200).json(sched);
+    })
+    .catch(err => {
+      if (err) {
+        console.log("delete error: " + err);
+      }
+      res.sendStatus(500)
+    });
+    res.send('Schedule deleted')
+  }; 
 
+  function editActivity(req,res) {
+    Activity.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(activity => {
+        res.status(200).json(activity);
+    })
+    .catch(err => {
+        if (err) {
+        console.log("update error: " + err);
+      }
+        res.sendStatus(500)
+    });
+  }; 
 
-       
-      
+  function deleteActivity(req, res) {
+    Activity.findByIdAndRemove(req.params.id)
+    .then(activ => {
+      res.status(200).json(activ);
+    })
+    .catch(err => {
+      if (err) {
+        console.log("delete error: " + err);
+      }
+      res.sendStatus(500)
+    });
+    res.send('Activity deleted')
+  }; 

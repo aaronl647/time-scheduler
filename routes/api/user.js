@@ -10,6 +10,9 @@ router.put('/edit/:id', userCtrl.editUser) // Update user
 router.put('/plan/edit/:id', userCtrl.editSchedule) // show ongoing plans
 router.get('/plan/:id', userCtrl.showPlan) // show ongoing plans
 router.post('/plan/newplan', userCtrl.newPlan) // Create a new Schedule
-router.post('/plan/newplan/activity', userCtrl.newActivity) // Create a new Activity
+router.post('/plan/newplan/activity', userCtrl.newActivity) // Create a new activity
+router.delete('/plan/edit/:id', userCtrl.deleteSchedule) // Deletes schedule
+router.delete('/activity/edit/:id', userCtrl.deleteActivity) // Deletes activity
+router.put('/activity/edit/:id', userCtrl.editActivity) // edits ongoing activites
 
 module.exports = router;

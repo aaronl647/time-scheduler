@@ -1,29 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Time Scheduler App</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-  <h1>Time Scheduler App</h1>
+  <div class="summary">
+    <p>
+      This app is meant to help groups of friends find the most optimal time in their busy schedules to meet up
+      or do something together.
+    </p>
+    <p>
+      This is a basic API document of how the app will run.
+    </p>
+    <p>
+      There are 3 main models: User, Time & Date, and Activity.
+    </p>
+  </div>
+  <button type="button" class="model-button">User</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const UserSchema = new Schema({
+          name: {type: String, required: true},
+          email: {type: String, required: true},
+          scheduleId: [{type: Schema.Types.ObjectId, ref: 'Availability'}],
+          activityId: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
+      },{
+          timestamps: true
+      }
+      )
+      </pre>
+  </div>
 
-  <p>Start by adding in your full name and E-mail</p>
+  <button type="button" class="model-button">Time & Date</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const daySchema = new Schema({
+          dayOfWeek: {type: [String], required: true},
+          time: {type: [String], default: true}
+      },{
+          timestamps: true
+      })
+      </pre>
+  </div>
 
-  <form method="POST" action="/">
+  <button type="button" class="model-button">Activities</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const ActivitySchema = new Schema({
+          description: [String]
+      },{
+          timestamps: true 
+      })
+      </pre>
+  </div>
 
-    <div class='form-group' id='signup'>
-      <label for="name">Full Name:</label>
-      <input type="text" class="form-control" name="name">
-      <label for="email">E-mail:</label>
-      <input type="text" class="form-control" name="email">
-    </div>
-    <br>
-    <input type="submit" value="Submit">
-  </form><br>
+  <p><span class="user">Everything about the USER</span></p>
 
 </body>
 
 </html>
-
