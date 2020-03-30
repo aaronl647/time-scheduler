@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Time Scheduler App Documentation</title>
+  <script defer src="/javascripts/app.js"></script>
+</head>
+
+<body>
+  <div class="summary">
+    <p>
+      This app is meant to help groups of friends find the most optimal time in their busy schedules to meet up
+      or do something together.
+    </p>
+    <p>
+      This is a basic API document of how the app will run.
+    </p>
+    <p>
+      There are 3 main models: User, Time & Date, and Activity.
+    </p>
+  </div>
+  <button type="button" class="model-button">User</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const UserSchema = new Schema({
+          name: {type: String, required: true},
+          email: {type: String, required: true},
+          scheduleId: [{type: Schema.Types.ObjectId, ref: 'Availability'}],
+          activityId: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
+      },{
+          timestamps: true
+      }
+      )
+      </pre>
+  </div>
+
+  <button type="button" class="model-button">Time & Date</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const daySchema = new Schema({
+          dayOfWeek: {type: [String], required: true},
+          time: {type: [String], default: true}
+      },{
+          timestamps: true
+      })
+      </pre>
+  </div>
+
+  <button type="button" class="model-button">Activities</button>
+  <div class="content">
+    <pre class="prettyprint">
+        const ActivitySchema = new Schema({
+          description: [String]
+      },{
+          timestamps: true 
+      })
+      </pre>
+  </div>
+
+  <p><span class="user">Everything about the USER</span></p>
+
+  <button type="button" class="model-button"><span class="method">POST</span>___api/user/ Create a new user</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "scheduleId": [],
+      "activityId": [],
+      "_id": "5e81e6adfcb90b0e8391be83",
+      "name": "Aaron",
+      "email": "aaron.l@live.ca",
+      "createdAt": "2020-03-30T12:31:41.600Z",
+      "updatedAt": "2020-03-30T12:31:41.600Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">GET</span>___api/user/_id Show a user</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "scheduleId": [],
+      "activityId": [],
+      "_id": "5e81e6adfcb90b0e8391be83",
+      "name": "Aaron",
+      "email": "aaron.l@live.ca",
+      "createdAt": "2020-03-30T12:31:41.600Z",
+      "updatedAt": "2020-03-30T12:31:41.600Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">PUT</span>___api/user/edit/_id Edit a new user</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "scheduleId": [],
+      "activityId": [],
+      "_id": "5e81e6adfcb90b0e8391be83",
+      "name": "Eric",
+      "email": "aaron.l@live.ca",
+      "createdAt": "2020-03-30T12:31:41.600Z",
+      "updatedAt": "2020-03-30T12:31:41.600Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <p><span class="user">Everything about the Time & Date</span></p>
+
+  <button type="button" class="model-button"><span class="method">POST</span>___api/user/plan/newplan Create a new schedule</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "dayOfWeek": [
+          "Monday",
+          "Wednesday",
+          "Friday"
+      ],
+      "time": [
+          "Afternoon",
+          "Night",
+          "Night"
+      ],
+      "_id": "5e81e887fcb90b0e8391be84",
+      "createdAt": "2020-03-30T12:39:35.274Z",
+      "updatedAt": "2020-03-30T12:39:35.274Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">GET</span>___api/user/plan/_id Show an ongoing schedule</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "dayOfWeek": [
+          "Monday",
+          "Wednesday",
+          "Friday"
+      ],
+      "time": [
+          "Afternoon",
+          "Night",
+          "Night"
+      ],
+      "_id": "5e81e887fcb90b0e8391be84",
+      "createdAt": "2020-03-30T12:39:35.274Z",
+      "updatedAt": "2020-03-30T12:39:35.274Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">GET</span>___api/user/plan/edit/_id Edit an ongoing schedule</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Friday"
+      ],
+      "time": [
+          "Afternoon",
+          "Night",
+          "Night"
+      ],
+      "_id": "5e81e887fcb90b0e8391be84",
+      "createdAt": "2020-03-30T12:39:35.274Z",
+      "updatedAt": "2020-03-30T12:39:35.274Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">DELETE</span>___api/user/plan/newplan/activity Delete an existing schedule</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    Schedule deleted
+  </pre>
+  </div>
+
+  <p><span class="user">Everything about Activities</span></p>
+
+  <button type="button" class="model-button"><span class="method">POST</span>___api/user/plan/newplan/activity Create a new activity</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "description": [
+          "Lunch",
+          "Dinner",
+          "Breakfast"
+      ],
+      "_id": "5e81ecba80a8120f8156a77e",
+      "createdAt": "2020-03-30T12:57:30.552Z",
+      "updatedAt": "2020-03-30T12:57:30.552Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">GET</span>___api/user/activity/_id Show an activity</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "description": [
+          "Lunch",
+          "Dinner",
+          "Breakfast"
+      ],
+      "_id": "5e81ecba80a8120f8156a77e",
+      "createdAt": "2020-03-30T12:57:30.552Z",
+      "updatedAt": "2020-03-30T12:57:30.552Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">PUT</span>___api/user/activity/edit/_id Update an activity</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    {
+      "description": [
+          "Lunch",
+          "Gaming",
+          "Breakfast"
+      ],
+      "_id": "5e81ecba80a8120f8156a77e",
+      "createdAt": "2020-03-30T12:57:30.552Z",
+      "updatedAt": "2020-03-30T12:57:30.552Z",
+      "__v": 0
+  }
+  </pre>
+  </div>
+
+  <button type="button" class="model-button"><span class="method">DELETE</span>___api/user/activity/edit/_id Delete an existing activity</button>
+  <div class="content">
+  <pre class="prettyprint">
+    Result: 
+    Activity deleted
+  </pre>
+  </div>
+
+</body>
+
+</html>

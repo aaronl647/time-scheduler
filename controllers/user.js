@@ -12,6 +12,7 @@ module.exports = {
     editUser,
     editSchedule,
     deleteSchedule,
+    showActivity,
     editActivity,
     deleteActivity
 }
@@ -121,6 +122,17 @@ function editUser(req,res) {
     });
     res.send('Schedule deleted')
   }; 
+
+  function showActivity(req, res){
+    Activity.find({name:req.params.id})
+      .exec((err, activ)=> {
+        if (err) {
+        console.log("index error:" + err);
+        res.sendStatus(500);
+    }
+        res.json(activ);
+    });
+}
 
   function editActivity(req,res) {
     Activity.findByIdAndUpdate(req.params.id, req.body, {new: true})
