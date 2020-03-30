@@ -5,9 +5,10 @@ mongoose.connect(
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true
-    });
-const db = mongoose.connection
+    }); 
 
-db.on('connected', function () {
-    console.log(`HOWDY HO! You've connected to the MongoDB at ${db.host}:${db.port}`)
+mongoose.connection.on('connected', function () {
+    console.log("HOWDY HO! You've connected to the MongoDB")
 })
+
+module.exports = mongoose;
