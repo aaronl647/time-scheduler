@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const daySchema = new Schema({
     dayOfWeek: {type: [String], required: true},
-    time: {type: [String], default: true}
+    earliestTime: {type: [String], default: true},
+    latestTime:{type: [String], default: true}
 },{
     timestamps: true
 })
